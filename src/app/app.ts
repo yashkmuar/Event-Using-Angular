@@ -8,15 +8,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css']
 })
 export class App {
-  // Use a plain string instead of an Angular signal
-  protected readonly title: string = 'event-using-angular';
+  protected readonly title:string = 'event-using-angular';
 
-  // Accept the DOM event optionally. This works without signals.
-  handleEvent(event?: Event){
-    console.log('Function called');
-    console.log('title:', this.title);
-    if (event) {
-      console.log('Event:', event);
-    }
+  handleEvent(event:any){
+    console.log('Function called',event.type);
+    console.log('Function called',event.target);
+    console.log('Function called',event.target.name);
+    console.log('Function called',(event.target as Element).className);
   }
 }
